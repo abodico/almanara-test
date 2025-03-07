@@ -1,0 +1,127 @@
+<div
+  class="w-[calc(100vw-470px)] h-screen flex flex-col items-center justify-center relative"
+>
+  <h2
+    class="zen-kaku-gothic-antique-black text-2xl text-center leading-[44px] text-[#212121] mb-3"
+  >
+    WELCOME BACK EXCLUSIVE MEMBER
+  </h2>
+  <p
+    class="zen-kaku-gothic-antique-regular text-2xl text-center leading-[44px] text-[#424242] mb-[38px]"
+  >
+    LOG IN TO CONTINUE
+  </p>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    class="example-form w-[420px] zen-kaku-gothic-antique-regular"
+  >
+    <!-- email input -->
+    <div
+      class="flex items-center gap-3 border-solid border-black/40 border rounded-2xl"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        width="23"
+        height="20"
+        class="ml-3"
+      >
+        <path
+          d="M64 112c-8.8 0-16 7.2-16 16l0 22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1l0-22.1c0-8.8-7.2-16-16-16L64 112zM48 212.2L48 384c0 8.8 7.2 16 16 16l384 0c8.8 0 16-7.2 16-16l0-171.8L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64l384 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128z"
+          fill="#03459C"
+        />
+      </svg>
+
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        placeholder="example@email.com"
+        class="text-black rounded-[16px] placeholder-[#424242] w-full py-3 outline-none"
+        required
+      />
+    </div>
+    <!-- error message -->
+    <div
+      *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+      class="text-red-500"
+    >
+      Please enter a valid email.
+    </div>
+    <!-- password input -->
+    <div
+      class="flex items-center gap-3 border-solid border-black/40 border rounded-2xl mt-3"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+        width="23"
+        height="20"
+        class="ml-3"
+      >
+        <path
+          d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"
+          fill="#03459C"
+        />
+      </svg>
+
+      <input
+        id="password"
+        formControlName="password"
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="*********"
+        class="text-black rounded-[16px] placeholder-[#424242] w-full py-3 outline-none"
+        required
+      />
+      <button
+        type="button"
+        (click)="showPassword = !showPassword"
+        class="text-[#9E9E9E] text-xs cursor-pointer mr-3"
+      >
+        @if (!showPassword) {SHOW}@else {HIDE}
+      </button>
+    </div>
+    <!-- error message -->
+    <div
+      *ngIf="
+        loginForm.get('password')?.invalid && loginForm.get('password')?.touched
+      "
+      class="text-red-500"
+    >
+      Password is required.
+    </div>
+    <!-- button container -->
+    <div class="px-6 mt-2.5">
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="group relative inline-flex items-center overflow-hidden bg-[#FF8000] px-4 py-3 text-white focus:ring-3 focus:outline-hidden w-full hover:shadow-lg cursor-pointer rounded-2xl zen-kaku-gothic-antique-medium"
+      >
+        <span class="absolute -end-full transition-all group-hover:end-4">
+          <svg
+            class="size-5 rtl:rotate-180"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </span>
+
+        <span class="text-sm font-medium transition-all group-hover:me-4">
+          Proceed to my Account
+        </span>
+      </button>
+    </div>
+  </form>
+  <p class="absolute bottom-5 left-1/2 -translate-x-1/2 text-[#9E9E9E]">
+    Copyright 2024 - 2025 Almanara. All rights Reserved
+  </p>
+</div>
